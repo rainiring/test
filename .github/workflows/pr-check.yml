@@ -33,6 +33,7 @@ jobs:
       - name: Check License Header Output
         id: verify_license
         run: |
+          cat license_check_output.txt
           if grep -q 'mismatched=0' license_check_output.txt; then
             echo "License check passed."
           else
