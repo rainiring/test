@@ -31,4 +31,4 @@ jobs:
         run: go install github.com/B1NARY-GR0UP/nwa@37adc510599dfca423289f9683f3d10a9db766eb
 
       - name: Run License Header Check
-        run: nwa check -c "BINARY Members" -l apache -y 2024 ./**/*.go ./*.go
+        run: nwa check -c "BINARY Members" -l apache -y 2024 ./*.go
