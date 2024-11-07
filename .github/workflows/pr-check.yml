@@ -30,6 +30,9 @@ jobs:
         id: license_check
         run: nwa check -c "BINARY Members" -l apache -y 2024 ./*.go | tee nwa_check.log
 
+      - name: Print License Header Check Log
+        run: cat nwa_check.log
+
       - name: Verify License Header Check
         run: |
           if grep -q "mismatched=0" nwa_check.log; then
@@ -37,4 +40,3 @@ jobs:
           else
             echo "License header check failed."
             exit 1
-          fi
