@@ -32,9 +32,10 @@ jobs:
 
       - name: Check License Header Results
         run: |
-          mismatched_count=$(grep -o -m 1 'mismatched=[0-9]*' license_check_output.txt | cut -d'=' -f2 || echo "0")
-          if [ "$mismatched_count" -ne 0 ]; then
+          mismatched_count=$(grep -o -m 1 'mismatched=[0-9]*' license_check_output.txt | cut -d'=' -f2)
+          if [ "$mismatched_count" != "0" ]; then
             echo "License header check failed: some files are missing the correct license header."
             cat license_check_output.txt
             exit 1
-          fi
+          else
+            echo "License header check passed."
