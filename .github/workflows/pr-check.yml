@@ -30,12 +30,12 @@ jobs:
         id: license_check
         run: nwa check -c "BINARY Members" -l apache -y 2024 ./*.go > license_check_output.txt
 
-      - name: Check License Header Results
+      - name: Check License Header Output
+        id: verify_license
         run: |
-          mismatched_count=$(grep -o 'mismatched=[0-9]*' license_check_output.txt | cut -d'=' -f2)
-          if [ "$mismatched_count" -ne 0 ]; then
-            echo "License header check failed: some files are missing the correct license header."
-            cat license_check_output.txt
-            exit 1
+          if grep -q 'mismatched=0' license_check_output.txt; then
+            echo "License check passed."
           else
-            echo "License header check passed."
+            echo "License check failed."
+            exit 1
+          fi
