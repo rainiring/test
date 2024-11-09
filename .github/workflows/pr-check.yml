@@ -7,6 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -24,19 +25,7 @@ jobs:
         run: go test -v ./...
 
       - name: Install NWA
-        run: go install github.com/B1NARY-GR0UP/nwa@37adc510599dfca423289f9683f3d10a9db766eb
+        run: go install github.com/B1NARY-GR0UP/nwa@c1ec32a9d490e77e7399a59f4d3eb6a23f352bec
 
       - name: Run License Header Check
-        id: license_check
-        run: nwa check -c "BINARY Members" -l apache -y 2024 ./*.go | tee nwa_check.log
-
-      - name: Print License Header Check Log
-        run: cat nwa_check.log
-
-      - name: Verify License Header Check
-        run: |
-          if grep -q "mismatched=0" nwa_check.log; then
-            echo "License header check passed."
-          else
-            echo "License header check failed."
-            exit 1
+        run: nwa check -c "BINARY Members" -l apache -y 2023 ./*.go
