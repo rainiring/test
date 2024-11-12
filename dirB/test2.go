@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package dirB
 
-func test3() string {
+func test2() string {
 	return ""
 }
