@@ -1,0 +1,7 @@
+nwa:
+  holder: "BINARY Members"
+  license: "apache"
+  fuzzy: true
+  verbose: true
+  path: ["**/*.go"]
+  skip: ["./dirB/test2.go"]
