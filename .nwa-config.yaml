@@ -4,4 +4,4 @@ nwa:
   fuzzy: true
   verbose: true
   path: ["**/*.go"]
-  skip: ["./dirB/test2.go"]
+  skip: ["dirB/test2.go"]
