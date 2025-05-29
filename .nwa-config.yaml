@@ -5,5 +5,5 @@ nwa:
   verbose: true
   path:
     - "**/*.go"
-#  skip:
-#    - "dirB/test2.go"
+  skip:
+    - "dirB/test2.go"
