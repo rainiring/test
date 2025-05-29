@@ -11,21 +11,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.21
-
-      - name: Build
-        run: go build -v ./...
-
-      - name: Test
-        run: go test -v ./...
-
-      - name: Install NWA
-        run: go install github.com/B1NARY-GR0UP/nwa@70af796c1359897ce02538ecfae072832e474f92
-
-      - name: Run License Header Check
-        run: nwa config -c "check"
+      - uses: actions/checkout@v4
+      - uses: B1NARY-GR0UP/nwa@main
